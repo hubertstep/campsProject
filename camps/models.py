@@ -15,6 +15,9 @@ class Employee(models.Model):
     ]
     position = models.CharField(max_length=2, choices=POSITION_CHOICES)
 
+    def __str__(self):
+        return "{} {}".format(self.name, self.surname)
+
 
 class Parent(models.Model):
     name = models.CharField(max_length=50)
@@ -22,10 +25,16 @@ class Parent(models.Model):
     phone_number = models.CharField(max_length=20)
     email_address = models.EmailField()
 
+    def __str__(self):
+        return "{} {}".format(self.name, self.surname)
+
 
 class Group(models.Model):
     employee = models.ForeignKey(Employee, on_delete=models.PROTECT)
     name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 
 class Activity(models.Model):
@@ -34,6 +43,9 @@ class Activity(models.Model):
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     is_program = models.BooleanField()
+
+    def __str__(self):
+        return self.name
 
 
 class Participant(models.Model):
@@ -45,6 +57,11 @@ class Participant(models.Model):
     parents = models.ManyToManyField(Parent)
     groups = models.ManyToManyField(Group)
 
+    def __str__(self):
+        return "{} {}".format(self.name, self.surname)
 
 class ProgramActivity(models.Model):
     name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
