@@ -13,7 +13,7 @@ class Employee(models.Model):
         (MANAGER, 'Kierownik'),
         (GUARDIAN, 'Wychowawca'),
     ]
-    position = models.CharField(choices=POSITION_CHOICES)
+    position = models.CharField(max_length=2, choices=POSITION_CHOICES)
 
 
 class Parent(models.Model):
@@ -24,7 +24,7 @@ class Parent(models.Model):
 
 
 class Group(models.Model):
-    employee = models.ForeignKey(Employee, on_delete=models.SET_NULL)
+    employee = models.ForeignKey(Employee, on_delete=models.PROTECT)
     name = models.CharField(max_length=100)
 
 
