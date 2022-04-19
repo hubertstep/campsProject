@@ -8,8 +8,8 @@ app_name = 'camps_api'
 
 
 urlpatterns = [
-    path('employee/', views.employee_list),
-    path('employee/<int:pk>', views.employee_detail)
+    path('employee/', views.EmployeeList.as_view()),
+    path('employee/<int:pk>', views.EmployeeDetail.as_view())
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
