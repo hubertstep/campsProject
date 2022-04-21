@@ -40,7 +40,16 @@ INSTALLED_APPS = [
     'camps',
     'camps_api',
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'rest_auth.registration',
     'corsheaders',
+    'user',
+
 ]
 
 MIDDLEWARE = [
@@ -143,3 +152,5 @@ CORS_ALLOWED_ORIGINS = [
     'https://localhost:3000',
     'http://localhost:3000',
 ]
+
+AUTH_USER_MODEL = 'user.CustomUser'
