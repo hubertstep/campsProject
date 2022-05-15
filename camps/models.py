@@ -60,6 +60,7 @@ class Participant(models.Model):
     def __str__(self):
         return "{} {}".format(self.name, self.surname)
 
+
 class ProgramActivity(models.Model):
     name = models.CharField(max_length=200)
 
